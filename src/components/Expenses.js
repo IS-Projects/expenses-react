@@ -1,15 +1,15 @@
 import "./Expenses.css";
 import ExpenseItem from "./ExpenseItem";
 
-function Expenses({ expenses }) {
+function Expenses({ items }) {
   return (
     <div className="expenses">
-      {expenses.map((expense, index) => (
+      {items.map((item, index) => (
         <ExpenseItem
           key={index}
-          title={expense.title}
-          date={expense.date}
-          amount={expense.amount}
+          title={item.title}
+          date={item.date}
+          amount={item.amount}
         />
       ))}
     </div>
