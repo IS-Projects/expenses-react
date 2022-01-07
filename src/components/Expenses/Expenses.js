@@ -1,8 +1,8 @@
 import "./Expenses.css";
-import Card from "./Card";
+import Card from "../UI/Card";
 import ExpenseItem from "./ExpenseItem";
 
-function Expenses({ items }) {
+const Expenses = ({ items }) => {
   return (
     <Card className="expenses">
       {items.map((item, index) => (
@@ -15,6 +15,6 @@ function Expenses({ items }) {
       ))}
     </Card>
   );
-}
+};
 
 export default Expenses;
