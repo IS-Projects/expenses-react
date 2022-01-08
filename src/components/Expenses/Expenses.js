@@ -5,7 +5,7 @@ import ExpenseFilter from "./ExpenseFilter";
 import { useState } from "react";
 
 const Expenses = ({ items }) => {
-  const [year, setYear] = useState("2022");
+  const [year, setYear] = useState("2020");
   const saveYearDataHandler = (selectedYear) => {
     setYear(selectedYear);
     console.log("in Expenses.js");
@@ -13,8 +13,8 @@ const Expenses = ({ items }) => {
   };
   return (
     <div>
-      <ExpenseFilter onSaveYear={saveYearDataHandler} />
       <Card className="expenses">
+        <ExpenseFilter selected={year} onSaveYear={saveYearDataHandler} />
         {items
           .filter((item) => item.date.getFullYear().toString() === year)
           .map((item, index) => (
