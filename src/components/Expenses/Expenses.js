@@ -17,9 +17,9 @@ const Expenses = ({ items }) => {
         <ExpenseFilter selected={year} onSaveYear={saveYearDataHandler} />
         {items
           .filter((item) => item.date.getFullYear().toString() === year)
-          .map((item, index) => (
+          .map((item) => (
             <ExpenseItem
-              key={index}
+              key={item.id}
               title={item.title}
               date={item.date}
               amount={item.amount}
