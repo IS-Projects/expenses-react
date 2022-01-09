@@ -15,7 +15,6 @@ const ExpensesList = ({ items }) => {
           amount={item.amount}
         />
       ))}
-      ;
     </ul>
   );
 };
