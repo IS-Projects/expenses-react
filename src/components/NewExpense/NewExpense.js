@@ -15,7 +15,6 @@ const NewExpense = ({ onAddExpense }) => {
 
   const showFormHandler = () => {
     setShowForm(true);
-    console.log("button clicked!");
   };
 
   return (

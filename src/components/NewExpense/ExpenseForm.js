@@ -42,6 +42,10 @@ const ExpenseForm = ({ onSaveExpenseData, onDisplayForm }) => {
     setEnteredAmount("");
     setEnteredDate("");
   };
+
+  const cancelHandler = () => {
+    onDisplayForm(false);
+  };
   return (
     <form onSubmit={submitHandler}>
       <div className="new-expense__controls">
@@ -75,12 +79,7 @@ const ExpenseForm = ({ onSaveExpenseData, onDisplayForm }) => {
         </div>
       </div>
       <div className="new-expense__actions">
-        <button
-          type="button"
-          onClick={() => {
-            onDisplayForm(false);
-          }}
-        >
+        <button type="button" onClick={cancelHandler}>
           Cancel
         </button>
         <button type="submit">Add Expense</button>
