@@ -3,27 +3,34 @@ import ExpenseForm from "./ExpenseForm";
 import { useState } from "react";
 
 const NewExpense = ({ onAddExpense }) => {
+  const [isEditing, setIsEditing] = useState(false);
+
   const saveExpenseDataHandler = (enteredExpenseData) => {
     const expenseData = {
       ...enteredExpenseData,
       id: Math.random().toString(),
     };
     onAddExpense(expenseData);
+    setIsEditing(false);
   };
 
-  const [showForm, setShowForm] = useState(false);
+  const startEditingHandler = () => {
+    setIsEditing(true);
+  };
 
-  const showFormHandler = () => {
-    setShowForm(true);
+  const stopEditingHandler = () => {
+    setIsEditing(false);
   };
 
   return (
     <div className="new-expense">
-      {!showForm && <button onClick={showFormHandler}>Add New Expense</button>}
-      {showForm && (
+      {!isEditing && (
+        <button onClick={startEditingHandler}>Add New Expense</button>
+      )}
+      {isEditing && (
         <ExpenseForm
           onSaveExpenseData={saveExpenseDataHandler}
-          onDisplayForm={setShowForm}
+          onCancel={stopEditingHandler}
         />
       )}
     </div>
