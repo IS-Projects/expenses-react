@@ -9,6 +9,7 @@ const NewExpense = ({ onAddExpense }) => {
       id: Math.random().toString(),
     };
     onAddExpense(expenseData);
+    setShowForm(false);
   };
 
   const [showForm, setShowForm] = useState(false);
