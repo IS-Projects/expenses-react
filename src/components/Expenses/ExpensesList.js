@@ -13,6 +13,7 @@ const ExpensesList = ({ items }) => {
           title={item.title}
           date={item.date}
           amount={item.amount}
+          category={item.category}
         />
       ))}
     </ul>

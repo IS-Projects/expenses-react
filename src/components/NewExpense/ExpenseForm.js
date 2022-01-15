@@ -5,6 +5,7 @@ const ExpenseForm = ({ onSaveExpenseData, onCancel }) => {
   const [enteredTitle, setEnteredTitle] = useState("");
   const [enteredAmount, setEnteredAmount] = useState("");
   const [enteredDate, setEnteredDate] = useState("");
+  const [enteredCategory, setEnteredCategory] = useState("");
 
   // Other way to declare the variables:
   // const [userInput, setUserInput] = useState({
@@ -30,17 +31,23 @@ const ExpenseForm = ({ onSaveExpenseData, onCancel }) => {
     setEnteredDate(e.target.value);
   };
 
+  const categoryChangeHandler = (e) => {
+    setEnteredCategory(e.target.value);
+  };
+
   const submitHandler = (e) => {
     e.preventDefault();
     const expenseData = {
       title: enteredTitle,
       amount: enteredAmount,
       date: new Date(enteredDate),
+      category: enteredCategory,
     };
     onSaveExpenseData(expenseData);
     setEnteredTitle("");
     setEnteredAmount("");
     setEnteredDate("");
+    setEnteredCategory("");
   };
 
   return (
@@ -72,6 +79,14 @@ const ExpenseForm = ({ onSaveExpenseData, onCancel }) => {
             min="2019-01-01"
             max="2022-12-31"
             onChange={dateChangeHandler}
+          />
+        </div>
+        <div className="new-expense__control">
+          <label>Category</label>
+          <input
+            type="text"
+            value={enteredCategory}
+            onChange={categoryChangeHandler}
           />
         </div>
       </div>
